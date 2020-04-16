@@ -221,3 +221,282 @@ N个无耦合谐振子的哈密顿量和态空间(Fock态)为
 \end{equation}
 
 耦合谐振子的哈密顿量
+
+\begin{equation}
+	\hat{H}=\sum_{i}\frac{\hat{p}^2}{2m}+\frac{1}{2}k(\hat{x}_{j+1}-\hat{x}_j)^2
+\end{equation}
+
+我们假定系统具有周期性边界条件，于是其坐标与动量可以Fourier展开
+
+\begin{equation}
+	\begin{array}{lr}
+		x_k=\frac{1}{\sqrt{N}}\sum_{j}\tilde{x}_je^{-ik_ja} \\
+		p_k=\frac{1}{\sqrt{N}}\sum_{j}\tilde{p}_je^{ik_ja}
+	\end{array}
+\end{equation}
+
+其中$\tilde{x}_k$称为第k个振动模式，接下来将看到，它代表了一个集体激发，在固体物理中称为声子。于是哈密顿量变成
+
+\begin{equation}
+	\hat{H}=\sum_{k}\frac{1}{2m}\tilde{p}_k\tilde{p}_{-k}+\frac{1}{2}m\omega_k^2\tilde{x}_k^2
+\end{equation}
+
+这是N个无耦合的谐振子的系统哈密顿量，其中声子的振动频率$\omega_k^2=\frac{4k}{m}\sin^2\frac{ka}{2}$。引入产生湮灭算符
+
+\begin{equation}
+	\begin{array}{lr}
+		\tilde{x}_k=\sqrt{\frac{\hbar}{2m\omega_k}}(\hat{a}_k+\hat{a}_k^\dagger) \\
+		\tilde{p}_k=-i\sqrt{\frac{2m\hbar\omega_k}{2}}(\hat{a}_k-\hat{a}_k^\dagger)
+	\end{array}
+\end{equation}
+
+于是哈密顿量变成
+
+\begin{equation}
+	\hat{H}=\sum_{k}^N\frac{1}{2}\hbar\omega_k(\hat{a}_k\hat{a}_k^\dagger+\hat{a}_{-k}^\dagger\hat{a}_{-k})
+\end{equation}
+
+由于$\hat{a}_{-k}^\dagger\hat{a}_{-k}=\hat{a}_{-k}\hat{a}_{-k}^\dagger+1$，于是哈密顿量进而变成
+
+\begin{equation}
+	\hat{H}=\sum_{k}^N\hbar\omega_k(\hat{a}_k\hat{a}_k^\dagger+\frac{1}{2})
+\end{equation}
+
+其中，当系统的谐振子数N趋于无穷时，第二项会贡献一个无穷大的零点能，不具有可观测效应，这个之后我们再详细讨论。
+
+\subsubsection{全同粒子的粒子数表象}
+
+多体耦合谐振子的Fock态空间可以用于刻画全同粒子系统。不严格来讲，可以按照以下表格来对应
+
+\begin{center}
+    \begin{tabular}{c|c}
+        \hline
+            谐振子系统 & 全同粒子系统 \\
+        \hline
+            第k个谐振子 & 第m个粒子 \\
+        \hline
+            $E=\sum_{k=1}^Nn_k\hbar\omega_k$ & $E=\sum_{m=1}^Nn_mE_m$ \\
+        \hline
+            Quanta in oscillators & particles in momentum \\
+        \hline
+        \end{tabular}
+\end{center}
+
+真空态定义为$\ket{\Omega}=\ket{00}$，于是$\hat{a}_{p_1}^\dagger\hat{a}_{p_2}^\dagger\ket{\Omega}\propto\ket{11}$，以及$\hat{a}_{p_2}^\dagger\hat{a}_{p_1}^\dagger\ket{\Omega}\propto\ket{11}$。我们可以得到
+
+\begin{equation}
+    \hat{a}_{p_1}^\dagger\hat{a}_{p_2}^\dagger=\lambda\hat{a}_{p_2}^\dagger\hat{a}_{p_1}^\dagger,\ |\lambda|=1
+\end{equation}
+
+其中$\lambda=1$时为玻色子，$\lambda=-1$时为费米子，$\lambda=e^{i\theta}$为任意子。玻色子和费米子产生湮灭算符的对易关系为
+
+\begin{equation}
+    \begin{split}
+        [\hat{a}_i^\dagger,\hat{a}_j^\dagger]=[\hat{a}_i,\hat{a}_j]=0 \\
+        [\hat{a}_i,\hat{a}_j^\dagger]=\delta_{ij} \\
+        \ket{n_1n_2...}=\Pi_m\frac{1}{\sqrt{n_m!}}(\hat{a}_{p_m}^\dagger)^{n_m}\ket{0}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \{\hat{c}_i^\dagger,\hat{c}_j^\dagger\}=\{\hat{c}_i,\hat{c}_j\}=0 \\
+        \{\hat{c}_i,\hat{c}_j^\dagger\}=\delta_{ij}
+    \end{split}
+\end{equation}
+
+
+
+\subsection{二次量子化：波函数算符化}
+
+不严格地来讲，一次量子化可以理解为把粒子变成波，二次量子化可以理解为把波变成粒子。
+
+\begin{equation}
+	\left\{
+	\begin{array}{lr}
+		\Psi^\dagger(x)=\frac{1}{\sqrt{V}}\sum_{p}\hat{a}_p^\dagger e^{-i\vec{p}\cdot\vec{x}} \\
+		\Psi(x)=\frac{1}{\sqrt{V}}\sum_{p}\hat{a}_pe^{-i\vec{p}\cdot\vec{x}}
+	\end{array}
+	\right.
+\end{equation}
+
+玻色子和费米子分别满足对易关系和反对易关系
+
+\begin{equation}
+	\begin{split}
+		[\Psi(\vec{x}),\Psi^\dagger(\vec{y})]=\delta^{(3)}(\vec{x}-\vec{y}) \\
+		[\Psi(\vec{x}),\Psi(\vec{y})]=[\Psi^\dagger(\vec{x}),\Psi^\dagger(\vec{y})]=0
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\begin{array}{lr}
+		\{\Psi(\vec{x}),\Psi^\dagger(\vec{y})\}=\delta^{(3)}(\vec{x}-\vec{y}) \\
+		\{\Psi(\vec{x}),\Psi(\vec{y})\}=\{\Psi^\dagger(\vec{x}),\Psi^\dagger(\vec{y})\}=0
+	\end{array}
+\end{equation}
+
+于是算符可以表达为
+
+\begin{equation}
+	\begin{split}
+		\hat{A} &= \sum_{\alpha\beta}\ket{\alpha}\bra{\alpha}\hat{A}\ket{\beta}\bra{\beta} \\
+			&= \sum_{\alpha\beta}A_{\alpha\beta}\ket{\alpha}\bra{\beta} \\
+			&= \sum_{\alpha\beta}A_{\alpha\beta}\hat{a}_\alpha^\dagger\hat{a}_\beta
+	\end{split}
+\end{equation}
+
+特别地，动量算符、哈密顿量算符和势能算符表达为
+
+\begin{equation}
+	\begin{array}{lr}
+		\hat{p}= \\
+		\hat{H}= \\
+		\hat{V}= \\
+	\end{array}
+\end{equation}
+
+
+
+
+\subsection{多体系统的连续极限与场概念的引入}
+
+多体谐振子的哈密顿量和拉氏量是
+
+\begin{equation}
+	\begin{array}{lr}
+		H=\sum_{j}(\frac{p_j^2}{2m}+\frac{1}{2}k(q_{j+1}-q_j)^2) \\
+		L=\sum_{j}(\frac{p_j^2}{2m}-\frac{1}{2}k(q_{j+1}-q_j)^2)
+	\end{array}
+\end{equation}
+
+当$N\to\infty$时，我们可以认为$\frac{q_{j+1}-q_j}{l}\to\frac{\partial\phi(t,\vec{x})}{\partial x}\sim\nabla\phi$，即连续极限下，离散的格点可以过渡到连续的场。此时，动能和势能分别过渡到
+
+\begin{equation}
+    \begin{split}
+        T &= \sum_j\frac{1}{2}m\bigl(\frac{\partial q_i}{\partial t}\bigr)^2 \to \frac{1}{l}\int dx\frac{1}{2}\bigl(\frac{\partial\phi(t,\vec{x})}{\partial t}\bigr)^2 = \int dx\frac{1}{2}\rho\bigl(\frac{\partial\phi}{\partial t}\bigr)^2 \\
+        V &= \sum_j\frac{1}{2}k(q_{j+1}-q_i)^2 \to \sum_jkl^2\bigl(\frac{\partial\phi(t,\vec{x})}{\partial \vec{x}}\bigr)^2 \sim \int dx \tau(\nabla\phi)^2
+    \end{split}
+\end{equation}
+
+这样，哈密顿量和拉氏量过渡到连续体系中变成
+
+\begin{equation}
+    \begin{split}
+        H &= \int d^3\bigl[\frac{1}{2}\rho\bigl(\frac{\partial\phi}{\partial t}\bigr)^2+\frac{1}{2}\tau(\nabla\phi)^2\bigr] \\
+        L &= \int d^x\bigl[\frac{1}{2}\rho\bigl(\frac{\partial\phi}{\partial t}\bigr)^2-\frac{1}{2}\tau(\nabla\phi)^2\bigr]
+    \end{split}
+\end{equation}
+
+场论中我们希望所有可观测量满足Lorentz协变性，但哈密顿量和拉氏量在Lorentz变换下都不是协变量，这为我们研究可观测量带来不便。我们可以引入拉氏密度$\mathcal{L}=\frac{1}{2}\rho\bigl(\frac{\partial\phi}{\partial t}\bigr)^2-\frac{1}{2}\tau(\nabla\phi)^2$，这是一个Lorentz协变量，于是拉氏量可以表示为$L=\int d^x \mathcal{L}$。这样，作用量就可以写成Lorentz协变的形式
+
+\begin{equation}
+    S=\int dtL=\int d^4x\mathcal{L}
+\end{equation}
+
+最小作用量原理给出场论中的Euler-Lagrange方程
+
+\begin{equation}
+    \frac{\partial\mathcal{L}}{\partial\phi}-\partial_\mu\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}=0
+\end{equation}
+
+仿照分析力学，我们可以引入$\phi$场的正则共轭动量场，以及哈密顿量密度
+
+\begin{equation}
+    \begin{split}
+        \pi(x)=\frac{\partial\mathcal{L}}{\partial\dot{\phi}} \\
+        \mathcal{H}=\pi\dot{\phi}-\mathcal{L}
+    \end{split}
+\end{equation}
+
+类似有正则方程
+
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+            \dot{\phi}=\frac{\partial\mathcal{H}}{\partial\pi} \\
+            \dot{\pi}=-\frac{\partial\mathcal{H}}{\partial\phi}+\nabla\cdot\frac{\partial\mathcal{H}}{\partial(\nabla\phi)}
+        \end{array}
+    \right.
+\end{equation}
+
+
+
+\subsection{relativistic}
+
+我们采用记号$\eta^{\mu\nu}=diag(1,-1,-1,-1)$的度规。
+
+张量运算复习
+
+
+
+
+
+常见的场
+
+\begin{itemize}
+    \item[实标量场] Klein-Gorden方程 $(\partial^2+m^2)\phi(x)=0$
+
+        拉氏量$\mathcal{L}=\frac{1}{2}(\partial^\mu\phi)(\partial_\mu\phi)-\frac{1}{2}m^2\phi^2$
+
+    \item[复标量场] $\phi=\frac{1}{\sqrt{2}}(\phi_1+i\phi_2)$，$\phi^*=\frac{1}{\sqrt{2}}(\phi_1-i\phi_2)$
+        
+        拉氏量$\mathcal{L}=(\partial^\mu\phi^*)(\partial_\mu\phi)-m^2\phi^*\phi$
+        
+    \item[Dirac场]
+      
+    \item[电磁场] $\mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}-J_\mu A^\mu$
+        
+        \begin{equation}
+            F^{\mu\nu}=\Biggl(\begin{matrix}
+                0 & E_1 & E_2 & E_3 \\
+                -E_1 & 0 & -B_3 & B_2 \\
+                -E_2 & B_3 & 0 & -B_1 \\
+                -E_3 & -B_2 & B_1 & 0 \\
+            \end{matrix}\Biggr)
+        \end{equation}
+        
+        因此$F_{\mu\nu}F^{\mu\nu}=2(\vec{B}^2-\vec{E}^2)$
+        
+        除$F_{\mu\nu}F^{\mu\nu}$外，$F_{\mu\nu}$还可构造出一个Lorentz赝标量$\epsilon^{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta}\propto\vec{E}\cdot\vec{B}$，这一项会破坏宇称，与量子反常和拓扑效应有密切的关系。
+
+        U(1)对称性与流守恒
+        \begin{equation}
+            \partial_\mu J^\mu=0
+        \end{equation}
+
+        Maxwell方程组
+        \begin{equation}\label{Maxwell1}
+            \partial_\lambda F^{\lambda\mu}=J^\mu
+            \ \Rightarrow\ \left\{
+                \begin{split}
+                    \nabla\cdot\vec{E}&=\rho \\
+                    \nabla\times\vec{B}&=\vec{J}+\frac{\partial\vec{E}}{\partial t}
+                \end{split}
+                \right. 
+        \end{equation}
+        \begin{equation}\label{Maxwell2}
+            \partial_\lambda G^{\lambda\mu}=0
+            \ \Rightarrow\ \left\{
+                \begin{split}
+                    \nabla\cdot\vec{B}&=0 \\
+                    \nabla\times\vec{E}&=-\frac{\partial\vec{B}}{\partial t}
+                \end{split}
+            \right.
+        \end{equation}
+
+        其中$G_{\mu\nu}=\epsilon_{\mu\nu\alpha\beta}F^{\alpha\beta}$是$F_{\mu\nu}$的对偶。此外，(\ref{Maxwell2})也可以由$F^{\mu\nu}$的Bianchi恒等式$$\partial_\lambda F_{\mu\nu}+\partial_\mu F_{\nu\lambda}+\partial_\nu F_{\lambda\mu}=0$$得到。
+
+        我们知道在经典电磁学中，如果引入磁单极子，那么在(\ref{Maxwell2})的右侧需要引入磁荷密度和磁流密度，即
+        \begin{equation}
+            \partial_\lambda G^{\lambda\mu}=J_m^\mu
+            \ \Rightarrow\ \left\{
+                \begin{split}
+                    \nabla\cdot\vec{B}&=\rho_m \\
+                    \nabla\times\vec{E}&=\vec{J}_m-\frac{\partial\vec{B}}{\partial t}
+                \end{split}
+            \right.
+        \end{equation}
+
+
+\end{itemize}
