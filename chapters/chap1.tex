@@ -223,7 +223,7 @@ N个无耦合谐振子的哈密顿量和态空间(Fock态)为
 耦合谐振子的哈密顿量
 
 \begin{equation}
-	\hat{H}=\sum_{i}\frac{\hat{p}^2}{2m}+\frac{1}{2}k(\hat{x}_{j+1}-\hat{x}_j)^2
+	\hat{H}=\sum_{i}\frac{\hat{p}^2}{2m}+\frac{1}{2}K(\hat{x}_{j+1}-\hat{x}_j)^2
 \end{equation}
 
 我们假定系统具有周期性边界条件，于是其坐标与动量可以Fourier展开
@@ -241,7 +241,7 @@ N个无耦合谐振子的哈密顿量和态空间(Fock态)为
 	\hat{H}=\sum_{k}\frac{1}{2m}\tilde{p}_k\tilde{p}_{-k}+\frac{1}{2}m\omega_k^2\tilde{x}_k^2
 \end{equation}
 
-这是N个无耦合的谐振子的系统哈密顿量，其中声子的振动频率$\omega_k^2=\frac{4k}{m}\sin^2\frac{ka}{2}$。引入产生湮灭算符
+这是N个无耦合的谐振子的系统哈密顿量，其中声子的振动频率$\omega_k^2=\frac{4K}{m}\sin^2\frac{ka}{2}$。引入产生湮灭算符
 
 \begin{equation}
 	\begin{array}{lr}
@@ -309,7 +309,9 @@ N个无耦合谐振子的哈密顿量和态空间(Fock态)为
 
 \subsection{二次量子化：波函数算符化}
 
-不严格地来讲，一次量子化可以理解为把粒子变成波，二次量子化可以理解为把波变成粒子。
+不严格地来讲，一次量子化可以理解为把粒子变成波，二次量子化可以理解为把波变成粒子。(二次量子化：对于多个自由粒子，将具有相同状态的粒子平面波构成的波包视为状态特定的“粒子”？产生湮灭算符作用在一个波包上面产生或者湮灭一个平面波。)。
+
+在粒子数表象下，波函数变为算符，作用在多粒子态上在x处产生确定的具有不同动量的粒子。
 
 \begin{equation}
 	\left\{
@@ -346,13 +348,14 @@ N个无耦合谐振子的哈密顿量和态空间(Fock态)为
 	\end{split}
 \end{equation}
 
-特别地，动量算符、哈密顿量算符和势能算符表达为
+特别地，动量算符、哈密顿量算符(自由粒子)、势能算符表达为
 
 \begin{equation}
 	\begin{array}{lr}
-		\hat{p}= \\
-		\hat{H}= \\
-		\hat{V}= \\
+		\hat{p}= \sum_{p}\vec{p}\ \hat{a}_{p}^\dagger\hat{a}_{p}=\sum_{p}\vec{p}\ \hat{n}_{p}\\
+		\hat{H}= \sum_{p}\frac{\vec{p}^2}{2m}\hat{a}_{p}^\dagger\hat{a}_{p}=\sum_{p}\frac{\vec{p}^2}{2m}\hat{n}_{p}\\
+		\hat{V}= \sum_{p_{1},p_{2}}V_{\vec{p_{1}}-\vec{p_{2}}}\hat{a}_{p}^\dagger\hat{a}_{p}
+           =\sum_{p_{1},p_{2}}V_{\vec{p_{1}}-\vec{p_{2}}}\hat{n}_{p}\\
 	\end{array}
 \end{equation}
 
@@ -428,6 +431,14 @@ N个无耦合谐振子的哈密顿量和态空间(Fock态)为
 
 张量运算复习
 
+考虑闵氏时空，坐标 $x^{\mu}=(t,\vec{x})$ ，$x_{\mu}=g_{\mu\nu}x^{\nu}=(t,\vec{-x})$。取自然单位制 $c=\hbar=1$ ,此时
+\begin{equation}
+   \begin{array}{lr}
+     p^{\mu}=(E,\vec{p})\\
+     p^{2}=p^{\mu}p^{\mu}\eta_{\mu\mu}=E^{2}-\vec{p}^{2}=m^{2}\\
+     \partial^{2}=\partial_{\mu}\partial^{\mu}=\partial^{\mu}\partial_{\mu}
+   \end{array}
+\end{equation}
 
 
 
@@ -485,7 +496,7 @@ N个无耦合谐振子的哈密顿量和态空间(Fock态)为
             \right.
         \end{equation}
 
-        其中$G_{\mu\nu}=\epsilon_{\mu\nu\alpha\beta}F^{\alpha\beta}$是$F_{\mu\nu}$的对偶。此外，(\ref{Maxwell2})也可以由$F^{\mu\nu}$的Bianchi恒等式$$\partial_\lambda F_{\mu\nu}+\partial_\mu F_{\nu\lambda}+\partial_\nu F_{\lambda\mu}=0$$得到。
+        其中$G_{\mu\nu}=\epsilon_{\mu\nu\alpha\beta}F^{\alpha\beta}$是$F_{\mu\nu}$的对偶(Hodge duality)。此外，(\ref{Maxwell2})也可以由$F^{\mu\nu}$的Bianchi恒等式$$\partial_\lambda F_{\mu\nu}+\partial_\mu F_{\nu\lambda}+\partial_\nu F_{\lambda\mu}=0$$得到。
 
         我们知道在经典电磁学中，如果引入磁单极子，那么在(\ref{Maxwell2})的右侧需要引入磁荷密度和磁流密度，即
         \begin{equation}
