@@ -310,7 +310,7 @@ $e^{i(kja-\omega t)}$称为波矢k的振动模式或第k个振动模式，之后
 
 \begin{equation}
 	\begin{array}{lr}
-		\tilde{x}_k=\sqrt{\frac{\hbar}{2m\omega_k}}(\hat{a}_k+\hat{a}_k^\dagger) \\
+		\tilde{q}_k=\sqrt{\frac{\hbar}{2m\omega_k}}(\hat{a}_k+\hat{a}_k^\dagger) \\
 		\tilde{p}_k=-i\sqrt{\frac{2m\hbar\omega_k}{2}}(\hat{a}_k-\hat{a}_k^\dagger)
 	\end{array}
 \end{equation}
@@ -451,11 +451,11 @@ $e^{i(kja-\omega t)}$称为波矢k的振动模式或第k个振动模式，之后
 
 
 
-\subsection{relativistic}
+\subsection{经典相对论性场}
 
 我们采用记号$\eta^{\mu\nu}=diag(1,-1,-1,-1)$的度规。
 
-张量运算复习
+\subsubsection{张量运算复习}
 
 考虑闵氏时空，坐标 $x^{\mu}=(t,\vec{x})$ ，$x_{\mu}=g_{\mu\nu}x^{\nu}=(t,\vec{-x})$。取自然单位制 $c=\hbar=1$ ,此时
 \begin{equation}
@@ -466,74 +466,78 @@ $e^{i(kja-\omega t)}$称为波矢k的振动模式或第k个振动模式，之后
    \end{array}
 \end{equation}
 
+\subsubsection{基本的经典相对论性场}
 
-
-
-常见的场
+在场论中，我们所研究的场必须满足Lorentz对称性，用数学语言讲，就是场必须是Poincare群的群表示。通过对Pioncare群的结构进行分析，低自旋的相对论性场只有以下几种
 
 \begin{itemize}
     \item[实标量场] Klein-Gorden方程 $(\partial^2+m^2)\phi(x)=0$
 
-        拉氏量$\mathcal{L}=\frac{1}{2}(\partial^\mu\phi)(\partial_\mu\phi)-\frac{1}{2}m^2\phi^2$
+        经典拉氏量$\mathcal{L}=\frac{1}{2}(\partial^\mu\phi)(\partial_\mu\phi)-\frac{1}{2}m^2\phi^2$
 
     \item[复标量场] $\phi=\frac{1}{\sqrt{2}}(\phi_1+i\phi_2)$，$\phi^*=\frac{1}{\sqrt{2}}(\phi_1-i\phi_2)$
         
-        拉氏量$\mathcal{L}=(\partial^\mu\phi^*)(\partial_\mu\phi)-m^2\phi^*\phi$
+        经典拉氏量$\mathcal{L}=(\partial^\mu\phi^*)(\partial_\mu\phi)-m^2\phi^*\phi$
         
-    \item[Dirac场]
-      
-    \item[电磁场] $\mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}-J_\mu A^\mu$
+    \item[Dirac场] Dirac方程 $(i\gamma^\mu\partial_\mu+m)\Psi=0$
+    
+        经典拉氏量$\mathcal{L}=\bar{\Psi}(i\gamma^\mu\partial_\mu+m)\Psi$
+
+        $\gamma$矩阵将在后面进行详细介绍。
+
+    \item[电磁场] Maxwell方程组
+    
+        经典拉氏量$\mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}-J_\mu A^\mu$
         
         \begin{equation}
-            F^{\mu\nu}=\Biggl(\begin{matrix}
+            F^{\mu\nu}=\left(\begin{matrix}
                 0 & E_1 & E_2 & E_3 \\
                 -E_1 & 0 & -B_3 & B_2 \\
                 -E_2 & B_3 & 0 & -B_1 \\
                 -E_3 & -B_2 & B_1 & 0 \\
-            \end{matrix}\Biggr)
+            \end{matrix}\right)
         \end{equation}
-        
-        因此$F_{\mu\nu}F^{\mu\nu}=2(\vec{B}^2-\vec{E}^2)$
-        
-        除$F_{\mu\nu}F^{\mu\nu}$外，$F_{\mu\nu}$还可构造出一个Lorentz赝标量$\epsilon^{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta}\propto\vec{E}\cdot\vec{B}$，这一项会破坏宇称，与量子反常和拓扑效应有密切的关系。
-
-        U(1)对称性与流守恒
-        \begin{equation}
-            \partial_\mu J^\mu=0
-        \end{equation}
-
-        Maxwell方程组
-        \begin{equation}\label{Maxwell1}
-            \partial_\lambda F^{\lambda\mu}=J^\mu
-            \ \Rightarrow\ \left\{
-                \begin{split}
-                    \nabla\cdot\vec{E}&=\rho \\
-                    \nabla\times\vec{B}&=\vec{J}+\frac{\partial\vec{E}}{\partial t}
-                \end{split}
-                \right. 
-        \end{equation}
-        \begin{equation}\label{Maxwell2}
-            \partial_\lambda G^{\lambda\mu}=0
-            \ \Rightarrow\ \left\{
-                \begin{split}
-                    \nabla\cdot\vec{B}&=0 \\
-                    \nabla\times\vec{E}&=-\frac{\partial\vec{B}}{\partial t}
-                \end{split}
-            \right.
-        \end{equation}
-
-        其中$G_{\mu\nu}=\epsilon_{\mu\nu\alpha\beta}F^{\alpha\beta}$是$F_{\mu\nu}$的对偶(Hodge duality)。此外，(\ref{Maxwell2})也可以由$F^{\mu\nu}$的Bianchi恒等式$$\partial_\lambda F_{\mu\nu}+\partial_\mu F_{\nu\lambda}+\partial_\nu F_{\lambda\mu}=0$$得到。
-
-        我们知道在经典电磁学中，如果引入磁单极子，那么在(\ref{Maxwell2})的右侧需要引入磁荷密度和磁流密度，即
-        \begin{equation}
-            \partial_\lambda G^{\lambda\mu}=J_m^\mu
-            \ \Rightarrow\ \left\{
-                \begin{split}
-                    \nabla\cdot\vec{B}&=\rho_m \\
-                    \nabla\times\vec{E}&=\vec{J}_m-\frac{\partial\vec{B}}{\partial t}
-                \end{split}
-            \right.
-        \end{equation}
-
 
 \end{itemize}
+
+\subsubsection{电磁场的进一步讨论}
+
+由$F_{\mu\nu}$可以构造出两个Lorentz标量:$F_{\mu\nu}F^{\mu\nu}=2(\vec{B}^2-\vec{E}^2)$和$\epsilon^{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta}\propto\vec{E}\cdot\vec{B}$，其中第二项是Lorentz赝标量，会破坏宇称，与量子反常和拓扑效应有密切的关系。
+
+在进阶的场论中，我们将会知道，Lorentz对称性要求无质量的矢量场必须耦合到一个守恒流上，即
+\begin{equation}
+    \partial_\mu J^\mu=0
+\end{equation}
+
+基于电磁场的拉氏量，可以推导出Maxwell方程组
+\begin{equation}\label{Maxwell1}
+    \partial_\lambda F^{\lambda\mu}=J^\mu
+    \ \Rightarrow\ \left\{
+        \begin{split}
+            \nabla\cdot\vec{E}&=\rho \\
+            \nabla\times\vec{B}&=\vec{J}+\frac{\partial\vec{E}}{\partial t}
+        \end{split}
+        \right. 
+\end{equation}
+\begin{equation}\label{Maxwell2}
+    \partial_\lambda G^{\lambda\mu}=0
+    \ \Rightarrow\ \left\{
+        \begin{split}
+            \nabla\cdot\vec{B}&=0 \\
+            \nabla\times\vec{E}&=-\frac{\partial\vec{B}}{\partial t}
+        \end{split}
+    \right.
+\end{equation}
+
+其中$G_{\mu\nu}=\epsilon_{\mu\nu\alpha\beta}F^{\alpha\beta}$是$F_{\mu\nu}$的对偶(Hodge duality)。此外，(\ref{Maxwell2})也可以由$F^{\mu\nu}$的Bianchi恒等式$$\partial_\lambda F_{\mu\nu}+\partial_\mu F_{\nu\lambda}+\partial_\nu F_{\lambda\mu}=0$$得到。
+
+我们知道在经典电磁学中，如果引入磁单极子，那么在(\ref{Maxwell2})的右侧需要引入磁荷密度和磁流密度，即
+\begin{equation}
+    \partial_\lambda G^{\lambda\mu}=J_m^\mu
+    \ \Rightarrow\ \left\{
+        \begin{split}
+            \nabla\cdot\vec{B}&=\rho_m \\
+            \nabla\times\vec{E}&=\vec{J}_m-\frac{\partial\vec{B}}{\partial t}
+        \end{split}
+    \right.
+\end{equation}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex 2020.4.8)  19 APR 2020 09:44
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex 2020.4.8)  19 APR 2020 10:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -601,21 +601,22 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [3] [4] [5] [6] [7] [8]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 512.
+(amsmath)                trying to recover with `aligned' on input line 519.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 521.
+(amsmath)                trying to recover with `aligned' on input line 528.
 
+[9]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 534.
+(amsmath)                trying to recover with `aligned' on input line 541.
 
-) (./chapters/chap2.tex) (./chapters/chap3.tex) (./chapters/chap4.tex) [9] [10] (./main.aux) ) 
+) (./chapters/chap2.tex) (./chapters/chap3.tex) (./chapters/chap4.tex) [10] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  17617 strings out of 492483
  397978 string characters out of 6134980
- 478383 words of memory out of 5000000
+ 478384 words of memory out of 5000000
  21964 multiletter control sequences out of 15000+600000
  535443 words of font info for 57 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
