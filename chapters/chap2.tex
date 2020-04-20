@@ -1,1 +1,183 @@
-\section{对称性}
+\section{量子力学中的对称性}
+
+\subsection{概述}
+
+幺正算符复习
+
+
+
+
+
+幺正算符的生成元
+
+
+
+
+
+
+变换的主动观点与被动观点
+
+主动观点: 态不变，参考系变换
+
+被动观点: 态变换，参考系不变
+
+希尔伯特空间的U(1)对称性：量子力学中的物理态并不构成希尔伯特空间，而是希尔伯特空间模掉复数$\mathbb{C}^×=\mathbb{C}-\{0\}$的商空间，有时称为投影希尔伯特空间。对于有限维情形，物理态空间就是复射影空间$\mathbb{CP}^n=\mathbb{C}^n/\mathbb{C}^×$。而态矢量$\ket{\psi}$由于是归一化的并且具有自由全局相位，因此既不定义在希尔伯特空间上，也不定义在物理态空间上，而是定义在希尔伯特空间模掉正实数$\mathbb{R}^+$的商空间上，模掉$\mathbb{R}^+$代表了态的归一化。态矢量$\ket{\psi}$的自由相位在微分几何上代表了物理态空间上的纤维，因而态矢量构成的空间是物理态空间上的纤维丛，这在拓扑学上称为Hopf纤维化。
+
+以二能级系统为例，其物理态空间是$\mathbb{CP}^1=\mathbb{C}^2/\mathbb{C}^×$，拓扑上同胚于单位球面$S^2$，因此可以用Bloch球上的点来描述物理态；而态矢量的空间是$\mathbb{C}^2/\mathbb{R}^+$，拓扑上同胚于高维球面$S^3$，可以定义Hopf映射$\pi:S^3->S^2$，可以诱导一个纤维$S^3/\pi=U(1)$，这正是态矢量的全局相位所构成的群。
+
+
+\subsection{典型的幺正算符}
+
+\subsubsection{时间平移}
+
+一个量子态由$t_1$演化到$t_2$的过程可以表述为
+
+\begin{equation}
+    \ket{\psi(t_2)}=\hat{U}(t_2,t_1)\ket{\psi(t_1)}
+\end{equation}
+
+$\hat{U}(t_2,t_1)$称为时间演化算符，满足性质
+
+\begin{equation}
+    \begin{array}{lr}
+        \hat{U}(t,t)=1 \\
+        \hat{U}(t_3,t_2)\hat{U}(t_2,t_1)=\hat{U}(t_3,t_1) \\
+        \hat{U}(t_1,t_2)=\hat{U}^\dagger(t_2,t_1)=\hat{U}^{-1}(t_2,t_1) \\
+        \hat{U}(t_4,t_3)[\hat{U}(t_3,t_2)\hat{U}(t_2,t_1)]=[\hat{U}(t_4,t_3)\hat{U}(t_3,t_2)]\hat{U}(t_2,t_1)
+    \end{array}
+\end{equation}
+
+因此全体时间演化算符$\hat{U}(t_2,t_1)$构成李群。我们考虑无穷小的时间平移
+
+\begin{equation}
+    \ket{\Psi(t+dt)}=U(dt)\ket{\psi(t)}
+\end{equation}
+
+由于
+
+\begin{equation}
+    \ket{\psi(t+dt)}=\ket{\psi(t)}+\frac{d\psi(t)}{dt}dt
+\end{equation}
+
+以及薛定谔方程
+
+\begin{equation}
+    \hat{H}(t)\ket{\psi(t)}=i\hbar\frac{d}{dt}\ket{\psi(t)}
+\end{equation}
+
+可得
+
+\begin{equation}
+    \ket{\psi(t+dt)}=(1-i\hat{H}dt)\ket{\psi(t)}
+\end{equation}
+
+对于有限长时间的演化
+
+\begin{equation}
+    \begin{split}
+        \ket{\psi(0+t)}&=(1-i\hat{H}(t_N\equiv t)dt)(1-i\hat{H}(t_{N-1})dt)...(1-\hat{H}(t_1))(1-\hat{H}(t_0\equiv 0))\ket{\psi(0)} \\
+            &=e^{-i\mathbb{T}\int\hat{H}dt}
+    \end{split}
+\end{equation}
+
+其中$\mathbb{T}$代表编时乘积。
+
+\subsubsection{空间平移}
+
+我们将一个量子态由x平移到x+dx处(被动观点)，于是
+
+\begin{equation}
+    \begin{split}
+        \ket{\psi(x+dx)}&= \ket{\psi(x)}+\frac{d\ket{\psi(x)}}{dx}dx \\
+            &= (1+i\hat{p}dx)\ket{\psi(x)}
+    \end{split}
+\end{equation}
+
+对于有限远平移
+
+\begin{equation}
+    \ket{\psi(x+a)}=\lim_{N\to\infty}(1+i\hat{p}\frac{a}{N})^N\ket{\psi(x)}=e^{i\hat{p}a}\ket{\psi(x)}
+\end{equation}
+
+若使用主动观点
+
+\begin{equation}
+    \hat{U}(a)=e^{-i\hat{p}a}
+\end{equation}
+
+综合考虑时空平移
+
+\begin{equation}
+    \hat{U}(a_\mu)=e^{-ip^\mu a_\mu}=e^{-i\hat{H}t+i\hat{\vec{p}}\cdot\vec{a}}
+\end{equation}
+
+
+
+\subsection{转动变换}
+
+二维转动
+
+\begin{equation}
+    \left(\begin{matrix}
+        x' \\ y'
+    \end{matrix}\right) = \left(\begin{matrix}
+        \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta
+    \end{matrix}\right) \left(\begin{matrix}
+        x \\ y
+    \end{matrix}\right)
+\end{equation}
+
+三维转动的刻画有多种方式，例如由绕x轴、y轴、z轴的三种转动复合构成，又如欧拉角。我们考虑x,y,z轴三种转动的复合
+
+\begin{equation}
+    R_x(\theta_x)=\left(\begin{matrix}
+        1 & 0 & 0 \\
+        0 & \cos\theta_x & -\sin\theta_x \\
+        0 & \sin\theta_x & \cos\theta_x
+    \end{matrix}\right)
+\end{equation}
+
+\begin{equation}
+    R_y(\theta_y)=\left(\begin{matrix}
+        \cos\theta_y & 0 & -\sin\theta_y \\
+        0 & 1 & 0 \\
+        \sin\theta & 0 & \cos\theta_y
+    \end{matrix}\right)
+\end{equation}
+
+\begin{equation}
+    R_z(\theta_z)=\left(\begin{matrix}
+        \cos\theta_z & -\sin\theta_z & 0 \\
+        \sin\theta_z & \cos\theta_z & 0 \\
+        0 & 0 & 1
+    \end{matrix}\right)
+\end{equation}
+
+一般转动矩阵是
+
+\begin{equation}
+    R(\vec{\theta})=R_z(\theta_z)R_y(\theta_y)R_x(\theta_x)
+\end{equation}
+
+转动矩阵的性质
+
+
+
+
+
+全体转动矩阵构成$O(3)$群。由于$O(3)$并不是一个连通的流形，我们考虑其连通分支$SO(3)$，代表连续变换。其余变换可以分解为反射变换和连续变换的复合。
+
+考虑连续转动矩阵作用于量子态上。由于量子态空间构成线性空间，因此是$SO(3)$群的群表示。以动量本征态为例，动量本征态和动量算符的变换是
+
+\begin{equation}
+    \begin{array}{lr}
+        \ket{R(\vec{\theta})\vec{p}}=\hat{U}(\vec{\theta})\ket{\vec{p}} \\
+        \hat{U}(\vec{\theta})\hat{\vec{p}}\hat{U}^\dagger(\vec{\theta})=R(\theta)\hat{\vec{p}}
+    \end{array}
+\end{equation}
+
+转动变换的生成元是角动量，于是转动变换的幺正算符
+
+\begin{equation}
+    \hat{U}(\vec{\theta})=e^{-i\hat{\vec{J}}\cdot\vec{\theta}}=e^{-i(\hat{J}\cdot\vec{n})\theta}
+\end{equation}

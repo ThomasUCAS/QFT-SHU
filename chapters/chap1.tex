@@ -390,6 +390,8 @@ $e^{i(kja-\omega t)}$称为波矢k的振动模式或第k个振动模式，之后
 
 \subsection{多体系统的连续极限与场概念的引入}
 
+核心思路是：单体系统->多提系统->连续极限->场
+
 多体谐振子的哈密顿量和拉氏量是
 
 \begin{equation}
@@ -541,3 +543,29 @@ $e^{i(kja-\omega t)}$称为波矢k的振动模式或第k个振动模式，之后
         \end{split}
     \right.
 \end{equation}
+
+\subsubsection{标量场}
+
+实标量场的拉氏量写作
+
+\begin{equation}
+    \mathcal{L}=\partial^\mu\phi\partial_\mu\phi-m^2\phi^2
+\end{equation}
+
+由Euler-Lagrange方程可得Klein-Gorden方程：
+
+\begin{equation}\label{KG eq}
+    (\partial^2+m^2)\phi=0
+\end{equation}
+
+我们称系数m为质量，我们在动量空间来理解它的物理意义。动量空间中$\partial_\mu~ip_\mu$，于是动量空间的KG方程是$(-p^\mu p_\mu+m^2)\phi=0$。即$\phi$的质量是$m_\phi$，由狭义相对论的能量动量关系$E^2=\vec{p}^2+m_\phi^2$知道$p^\mu p_\mu=E^2-\vec{p}^2=-m_\phi^2$，于是$m^2=m_\phi^2$，说明KG方程的系数$m^2$代表了$\phi$的质量。
+
+$\phi$4理论的拉氏量是
+
+\begin{equation}
+    \mathcal{L}=\partial^\mu\phi\partial_\mu\phi-m^2\phi^2-\frac{1}{4!}\lambda\phi^4
+\end{equation}
+
+这是场论中最重要的一个例子，后面几章我们将会深入研究它。
+
+最后，对于Klein-Gorden方程的物理图像，我们做以下注记。在相对论性量子力学中，我们将$\phi(x)$诠释为一个相对论性粒子的波函数，$|\phi(x)|^2$诠释为该粒子出现在x的概率，KG方程是这个粒子的运动方程，地位相当于量子力学中的薛定谔方程。但是在场论中，我们的物理图像是完全不同的。这里，我们将$\phi(x)$诠释为一个经典场，类似于经典流体的流速场或者经典电磁场，KG方程是这个经典场的运动方程，地位相当于流体力学中的Navier-Stokes方程或者电动力学中的Maxwell方程组。事实上，这个物理图像在场论中是普遍的，狄拉克场、电磁场都是这样的物理图像，甚至在非相对论场论中，薛定谔方程的物理图像也转换为一个经典场的场方程。量子场论的正则量子化，就是对各种经典场来做量子化的。
