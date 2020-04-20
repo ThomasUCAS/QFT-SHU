@@ -330,6 +330,118 @@ $e^{i(kja-\omega t)}$称为波矢k的振动模式或第k个振动模式，之后
 其中，当系统的谐振子数N趋于无穷时，第二项会贡献一个无穷大的零点能，不具有可观测效应，这个之后我们再详细讨论。
 
 
+\subsubsection*{附：多体耦合谐振子哈密顿量的直接对角化}
+
+以上对于多体耦合谐振子哈密顿量，我们采用傅里叶变换的方式将其对角化，使其变成无耦合模式的哈密顿量。事实上，我们也可以像分析力学一样，直接对$(q_1,...,q_N)$做可逆变换，来得到哈密顿量的简正模式。我们首先将经典哈密顿量写成矩阵形式:
+
+\begin{equation}
+    \hat{H}=\frac{1}{2m}(p_1,...,p_N)\left(\begin{matrix}
+        1 & 0 & ... & 0 \\
+         & \dots & \dots \\
+        0 & 0 & ... & 1
+    \end{matrix}\right) \left(\begin{matrix}
+        p_1 \\ \dots \\ p_N
+    \end{matrix}\right)
+    +\frac{K}{2}(q_1,...,q_N)\left(\begin{matrix}
+        2 & -1 & 0 & 0 & ... & 0 & 0 & -1 \\
+        -1 & 2 & -1 & 0 & ... & 0 & 0 & 0 \\
+         & \dots & & \dots & \dots &  \\
+        0 & 0 & 0 & 0 & ... & -1 & 2 & -1 \\
+        -1 & 0 & 0 & 0 & ... & 0 & -1 & 2
+    \end{matrix}\right) \left(\begin{matrix}
+        q_1 \\ ... \\ q_N
+    \end{matrix}\right)
+\end{equation}
+
+设可逆矩阵T可以将经典哈密顿量对角化，即
+
+\begin{equation}
+    T\left(\begin{matrix}
+        p_1 \\ ... \\ p_N
+    \end{matrix}\right)=\left(\begin{matrix}
+        p'_1 \\ ... \\ p'_N
+    \end{matrix}\right),\ T\left(\begin{matrix}
+        q_1 \\ ... \\ q_N
+    \end{matrix}\right)=\left(\begin{matrix}
+        q'_1 \\ ... \\ q'_N
+    \end{matrix}\right)
+\end{equation}
+
+使得哈密顿量变为
+
+\begin{equation}
+    \hat{H}= \frac{1}{2m}(p'_1,...,p'_N)\left(\begin{matrix}
+        1 & 0 & ... & 0 \\
+            & \dots & \dots \\
+        0 & 0 & ... & 1
+    \end{matrix}\right) \left(\begin{matrix}
+        p'_1 \\ \dots \\ p'_N
+    \end{matrix}\right)
+    +\frac{K}{2}(q'_1,...,q'_N) \left(\begin{array}{cccc}
+        \lambda_1 & & & \\
+            & \lambda_2 & & \\
+            & & \ddots & \\
+            & & & \lambda_N
+    \end{array}\right) \left(\begin{matrix}
+        q'_1 \\ ... \\ q'_N
+    \end{matrix}\right) \\ =\sum_k\bigl(\frac{p'^2_k}{2m}+\frac{K\lambda_k}{2}q'^2_k\bigr)
+\end{equation}
+
+这样经典哈密顿量就变成无耦合谐振子系统的哈密顿量了，而主要困难在于如何求出特征值$\lambda_1,...,\lambda_N$，即求解行列式方程
+
+\begin{equation}
+    \left|\begin{matrix}
+        \lambda-2 & 1 & 0 & ... & 0 & 1 \\
+        1 & \lambda-2 & 1 & ... & 0 & 0 \\
+        0 & 1 & \lambda-2 & ... & 0 & 0 \\
+        & \dots & & \dots &   \\
+        0 & 0 & ... & 1 & \lambda-2 & 1 \\
+        1 & 0 & 0 & ... & 1 & \lambda-2
+    \end{matrix} \right|=0
+\end{equation}
+
+这个行列式可以根据线性代数的循环行列式来计算:
+
+\begin{equation}
+    \left| \begin{matrix}
+        a_0 & a_1 & ... & a_n \\
+        a_n & a_0 & ... & a_{n-1} \\
+         & ... & ... & \\
+        a_1 & a_2 & ... & a_0
+    \end{matrix} \right| = f(\omega_1)f(\omega_2)...f(\omega_n)
+\end{equation}
+
+其中$f(x)=a_0+a_1x+...+a_n x^{n-1}$，以及$\omega_k=e^{i\frac{2k\pi}{n}}$是$z^n=1$的第k个根。取$a_0=\lambda-2$，$a_1=1$，$a_n=1$，其余$a_k=0$，于是
+
+\begin{equation}
+    f(x)=\lambda-2+x+x^{n-1}
+\end{equation}
+
+所以行列式等于
+
+\begin{equation}
+    \begin{split}
+        &\left|\begin{matrix}
+            \lambda-2 & 1 & 0 & ... & 0 & 1 \\
+            1 & \lambda-2 & 1 & ... & 0 & 0 \\
+            0 & 1 & \lambda-2 & ... & 0 & 0 \\
+            & \dots & & \dots &   \\
+            0 & 0 & ... & 1 & \lambda-2 & 1 \\
+            1 & 0 & 0 & ... & 1 & \lambda-2
+        \end{matrix} \right| \\
+        &=\Pi_{k=1}^N (\lambda-2+e^{i\frac{2k\pi}{N}}+e^{i\frac{2k\pi(N-1)}{N}}) \\
+        &=\Pi_{k=1}^N (\lambda-2+e^{i\frac{2k\pi}{N}}+e^{-i\frac{2k\pi}{N}}) \\
+        &=\Pi_{k=1}^N (\lambda-(2-2\cos\frac{2k\pi}{N}))
+    \end{split}
+\end{equation}
+
+所以全体简正模式的特征值为
+
+\begin{equation}
+    \lambda_k=2-2\cos\frac{2k\pi}{N}=2\sin^2\frac{2k\pi}{N}
+\end{equation}
+
+这与我们用傅里叶变换得到的结果是一致的。剩下的步骤与无耦合谐振子系统是一致的，在此就不赘述了。
 
 
 
