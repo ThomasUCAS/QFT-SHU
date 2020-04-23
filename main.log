@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex 2020.4.8)  21 APR 2020 00:16
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex 2020.4.8)  23 APR 2020 17:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -626,14 +626,14 @@ Package amsmath Warning: Cannot use `split' here;
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 655.
 
-[11]) (./chapters/chap2.tex [12] [13]) (./chapters/chap3.tex) (./chapters/chap4.tex) [14] (./main.aux) ) 
+[11]) (./chapters/chap2.tex [12] [13] [14]) (./chapters/chap3.tex) (./chapters/chap4.tex) [15] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  17629 strings out of 492483
  398863 string characters out of 6134980
- 479395 words of memory out of 5000000
+ 480395 words of memory out of 5000000
  21976 multiletter control sequences out of 15000+600000
  535443 words of font info for 57 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,21n,76p,663b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (15 pages).
+Output written on main.pdf (16 pages).
